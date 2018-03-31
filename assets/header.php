@@ -1,31 +1,77 @@
+<?php
+##################################
+/*********************************
+ *  header.php - Website Header 
+ *********************************/
+##################################
+
+##################################
+##################################
+# INCLUDES                       #
+##################################
+##################################
+include_once('includes/utils.php');
+
+if(!is_array($template_config)){
+  $template_config = array();
+}// end if template config array not created
+
+$logged_in = get_val('logged_in', $template_config);
+##################################
+##################################
+# CONTENT                        #
+##################################
+##################################
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/foundation.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
   <title>Hit-List Builder</title>
-  <link rel="icon" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/jumbotron.css">
 </head>
 
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Hit-List Builder</a>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">HL Builder</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
+<?php
+  if($logged_in){
+?>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="#">Logout</a></li>
     </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="<?= current_page() == 'index.php' ? 'active' : ''?>"><a href="index.php">Home</a></li>
+      <li class="<?= current_page() == 'search.php' ? 'active' : ''?>"><a href="search.php">Search</a></li>
     </ul>
-  </div>
+  </section>
+<?php
+  }else{
+?>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="#">Login</a></li>
+    </ul>
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="<?= current_page() == 'index.php' ? 'active' : ''?>"><a href="index.php">Home</a></li>
+      <li class="<?= current_page() == 'pricing.php' ? 'active' : ''?>"><a href="pricing.php">Pricing</a></li>
+    </ul>
+  </section>
+<?php
+  }// end if logged in
+?>
 </nav>
-
 

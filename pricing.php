@@ -1,8 +1,8 @@
 <?php
 ##################################
 /*********************************
- *  index.php - Landing page users
- *  will first hit when they visit the site 
+ *  pricing.php - Page to display 
+ *  pricing and service information 
  *********************************/
 ##################################
 
@@ -21,7 +21,7 @@ include('assets/header.php');
 ?>
 <section class="main-content">
   <div class="panel clearfix">
-    <h2 class="text-center">Hit List Builder</h2>
+    <h2 class="text-center">Pricing</h2>
   </div>
 </section>
 
