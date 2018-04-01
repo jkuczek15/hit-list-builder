@@ -22,5 +22,5 @@ function get_val($index, $arr=null){
 * Returns the current PHP page name
 */
 function current_page(){
-  return basename($_SERVER['PHP_SELF']);
+  return str_replace('.php', '', basename($_SERVER['PHP_SELF']));
 }// end function current_page()

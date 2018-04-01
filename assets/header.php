@@ -31,47 +31,47 @@ $logged_in = get_val('logged_in', $template_config);
   <link rel="stylesheet" href="assets/css/foundation.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+  <script src="assets/js/vendor/modernizr.js"></script>
+  <script src="assets/js/vendor/jquery.js"></script>
   <title>Hit-List Builder</title>
 </head>
-
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">HL Builder</a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
-
+<!-- Navigation bar -->
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: small">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">HL</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+    <!-- Nav Items -->
+    <section class="top-bar-section">
+      <ul class="right">
 <?php
-  if($logged_in){
+      if($logged_in){
 ?>
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li><a href="#">Logout</a></li>
-    </ul>
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li class="<?= current_page() == 'index.php' ? 'active' : ''?>"><a href="index.php">Home</a></li>
-      <li class="<?= current_page() == 'search.php' ? 'active' : ''?>"><a href="search.php">Search</a></li>
-    </ul>
-  </section>
+        <li><a href="#">Logout</a></li>
 <?php
-  }else{
+      }else{
 ?>
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li><a href="#">Login</a></li>
-    </ul>
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li class="<?= current_page() == 'index.php' ? 'active' : ''?>"><a href="index.php">Home</a></li>
-      <li class="<?= current_page() == 'pricing.php' ? 'active' : ''?>"><a href="pricing.php">Pricing</a></li>
-    </ul>
-  </section>
+        <li><a href="#">Login</a></li>
 <?php
-  }// end if logged in
+      }// end if logged in
 ?>
-</nav>
+      </ul>
+      <ul class="left">
+        <li class="<?= current_page() == 'index' ? 'active' : ''?>"><a href="index.php">Home</a></li>
+<?php
+      if($logged_in){
+?>
+        <li class="<?= current_page() == 'search' ? 'active' : ''?>"><a href="search.php">Search</a></li>
+<?php
+      }// end if logged in
+?>
+      </ul>
+      <!-- / Nav Items -->
+    </section>
+  </nav>
+</div>
+<!-- / Navigation bar -->
 
