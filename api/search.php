@@ -19,5 +19,4 @@ include_once('../includes/utils.php');
 ##################################
 $product = get_val('product');
 
-
 echo $product;
