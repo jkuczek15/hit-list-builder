@@ -31,8 +31,8 @@ include('assets/header.php');
         <li class="title">Standard</li>
         <li class="price">$199.99</li>
         <li class="description">One-time payment</li>
-        <li class="bullet-item">Utilize Amazon and Linkedin API's</li>
-        <li class="bullet-item">Export to .CSV or Google Drive</li>
+        <li class="bullet-item">Utilize Amazon and Linkedin data</li>
+        <li class="bullet-item">Export to Excel or Google Drive</li>
         <li class="bullet-item">Unlimited Exports</li>
         <li class="cta-button"><a class="button" href="search.php">Buy Now</a></li>
       </ul>
