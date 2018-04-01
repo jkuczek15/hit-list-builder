@@ -35,7 +35,6 @@ $logged_in = get_val('logged_in', $template_config);
   <script src="assets/js/vendor/jquery.js"></script>
   <title>Hit-List Builder</title>
 </head>
-<!-- Navigation bar -->
 <div class="contain-to-grid sticky">
   <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: small">
     <ul class="title-area">
@@ -44,7 +43,6 @@ $logged_in = get_val('logged_in', $template_config);
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
     </ul>
-    <!-- Nav Items -->
     <section class="top-bar-section">
       <ul class="right">
 <?php
@@ -69,9 +67,6 @@ $logged_in = get_val('logged_in', $template_config);
       }// end if logged in
 ?>
       </ul>
-      <!-- / Nav Items -->
     </section>
   </nav>
 </div>
-<!-- / Navigation bar -->
-

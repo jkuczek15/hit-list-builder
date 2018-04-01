@@ -13,7 +13,6 @@
   </div>
 </footer>
 
-<!-- Scripts -->
 <script src="assets/js/foundation.min.js"></script>
 <script>
   $(document).foundation();
