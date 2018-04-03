@@ -6,6 +6,12 @@
   display: none !important;
 }
 
+.hit-list-button {
+  float: right; 
+  margin-bottom: 0; 
+  margin-top: 2em;
+}
+
 footer {
   padding: 20;
   background-color: #363636;

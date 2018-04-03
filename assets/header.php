@@ -5,6 +5,7 @@
  *********************************/
 ##################################
 
+
 ##################################
 ##################################
 # INCLUDES                       #
@@ -33,6 +34,7 @@ $logged_in = get_val('logged_in', $template_config);
   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
   <script src="assets/js/vendor/modernizr.js"></script>
   <script src="assets/js/vendor/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <title>Hit-List Builder</title>
 </head>
 <div class="contain-to-grid sticky">
