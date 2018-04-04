@@ -20,6 +20,7 @@ let getProducts = (product) => {
     $('#product_error').show();
     $('#product_label').addClass('error');
     $('#product').addClass('error');
+    $('#build_all').hide();
     return;
   }// end if product is null
 
@@ -27,16 +28,19 @@ let getProducts = (product) => {
     let items = data.Items.Item;
 
     if(!items){
+      $('#build_all').hide();
       alert("Could not find any products related to the search query.");
+      search.items = [];
       return;
     }// end if no items
 
     for(let i = 0; i < items.length; i++) {
-      if(items[i].LargeImage == undefined){
+      if(items[i].LargeImage == undefined) {
         items.splice(i, 1);
       }// end if image undefined
     }// end for loop over items
     
+    $('#build_all').show();
     search.items = items;
   });
 };
@@ -47,8 +51,8 @@ let search = new Vue({
     items: []
   },
   methods: {
-    buildList: (item) => {
-      console.log(item);
+    buildList: (items) => {
+      console.log(items);
     }// end function buildList
   }
 });

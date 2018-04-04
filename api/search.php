@@ -33,18 +33,18 @@ $endpoint = "webservices.amazon.com";
 $uri = "/onca/xml";
 
 $params = array(
-    "Service" => "AWSECommerceService",
-    "Operation" => "ItemSearch",
-    "AWSAccessKeyId" => "AKIAJUCBHRTUO6B4JWJQ",
-    "AssociateTag" => "mobilea0ece0a-20",
-    "SearchIndex" => "All",
-    "Keywords" => $product,
-    "ResponseGroup" => "Images,ItemAttributes"
+  "Service" => "AWSECommerceService",
+  "Operation" => "ItemSearch",
+  "AWSAccessKeyId" => "AKIAJUCBHRTUO6B4JWJQ",
+  "AssociateTag" => "mobilea0ece0a-20",
+  "SearchIndex" => "All",
+  "Keywords" => $product,
+  "ResponseGroup" => "Images,ItemAttributes"
 );
 
 // Set current timestamp if not set
 if (!isset($params["Timestamp"])) {
-    $params["Timestamp"] = gmdate('Y-m-d\TH:i:s\Z');
+  $params["Timestamp"] = gmdate('Y-m-d\TH:i:s\Z');
 }
 
 // Sort the parameters by key
@@ -52,7 +52,7 @@ ksort($params);
 
 $pairs = array();
 foreach ($params as $key => $value) {
-    array_push($pairs, rawurlencode($key)."=".rawurlencode($value));
+  array_push($pairs, rawurlencode($key)."=".rawurlencode($value));
 }
 
 // Generate the canonical query
@@ -77,15 +77,15 @@ curl_setopt($ch, CURLOPT_URL, $request_url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 
 // $output contains the output string 
-$output = curl_exec($ch); 
+$products_xml = curl_exec($ch); 
 
 // close curl resource to free up system resources 
 curl_close($ch); 
 
 // parse the xml object into a PHP array
-$products_xml = simplexml_load_string($output) or die("Error: Cannot create object");
+$products = simplexml_load_string($products_xml) or die("Error: Cannot create object");
 
 // encode the php array as json and return the object
-echo json_encode($products_xml);
+echo json_encode($products);
 
 ?>

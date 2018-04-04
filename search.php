@@ -37,6 +37,7 @@ include('assets/header.php');
     </div>
   </form>
   <div id="results">
+    <input type="submit" v-on:click="buildList(items)" class="button" id="build_all" style="margin-left: 0.75em; display: none;" value="Build All" />
     <ul class="large-block-grid-3" style="margin: auto;">
       <li v-for="item in items">
         <div class="panel large-12 large-centered columns">
@@ -51,7 +52,7 @@ include('assets/header.php');
                 <li><a target="_blank" :href="item.DetailPageURL">View on Amazon</a></li>
               </ul>
             </div>
-            <input type="submit" v-on:click="buildList(item)" class="button hit-list-button" value="Build Hit List" />
+            <input type="submit" v-on:click="buildList([item])" class="button hit-list-button" value="Build Hit List" />
           </div>
         </div>
       </li>
