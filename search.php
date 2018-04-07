@@ -37,9 +37,11 @@ include('assets/header.php');
     </div>
   </form>
   <div id="results">
-    <input type="submit" v-on:click="buildList(items)" class="button" id="build_all" style="margin-left: 0.75em; display: none;" value="Build All" />
+    <input type="submit" v-on:click="buildList(items)" class="button show_if_results" style="margin-left: 0.75em; display: none;" value="Build All" />
     <ul class="large-block-grid-3" style="margin: auto;">
-      <li v-for="item in items">
+      <p style="display: none;" class="show_if_results">Total results: <strong>{{ items.length }}</strong></p>
+      <img style="display: none; margin-left: 45%; margin-top: 2em;" class="show_when_loading" src="assets/img/spinner.gif" width="7%" />
+      <li class="show_if_results" v-for="item in items">
         <div class="panel large-12 large-centered columns">
           <div class="row">
             <h5>{{ item.ItemAttributes.Title }}</h5>
