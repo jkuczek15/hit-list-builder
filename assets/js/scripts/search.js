@@ -48,6 +48,10 @@ let getProducts = (product) => {
   });
 };
 
+let getContact = (company) => {
+  window.location = `http://${window.location.host}/api/contact.php?companies=${company}`;
+};
+
 let search = new Vue({
   el: '#results',
   data: {
@@ -55,7 +59,8 @@ let search = new Vue({
   },
   methods: {
     buildList: (items) => {
-      console.log(items);
+      items = items.map(item => item.ItemAttributes.Manufacturer);
+      getContact(items.join(';'));
     }// end function buildList
   }
 });
